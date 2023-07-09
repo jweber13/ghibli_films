@@ -33,7 +33,7 @@ gem "redis", "~> 4.0"
 # Custom Gems
 gem 'faker'
 gem 'pry-byebug'
-gem "pg_search"
+# gem "pg_search"
 gem 'tailwindcss-rails'
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]

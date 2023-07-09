@@ -19,7 +19,6 @@ class FilmRepository
   end
 
   def create(attributes)
-    binding.pry
     film = Film.new(attributes)
     save(film)
   end
@@ -35,6 +34,20 @@ class FilmRepository
 
   def clear
     @films = {}
+  end
+
+  def search(query)
+    query = query.downcase
+    @films.values.select do |film|
+      film_attributes = [
+        film.title,
+        film.original_title,
+        film.description,
+        film.director,
+        film.producer
+      ]
+      film_attributes.any? { |attribute| attribute&.downcase&.include?(query) }
+    end
   end
 
   private

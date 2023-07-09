@@ -1,0 +1,16 @@
+<p>
+  <% if params[:query].blank? %>
+    <h3></h3>
+  <% else %>
+    <h3><%= pluralize films.count, "result" %> for <code><%= params[:query] %></code></h3>
+  <% end %>
+</p>
+<div class="practices-container">
+  <div>
+    <% films.each do |film| %>
+      <div>
+        <h5><%=link_to film.title, film_path(film.id)%></h5>
+      </div>
+    <% end %>
+  </div>
+</div>
