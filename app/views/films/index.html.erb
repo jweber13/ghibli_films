@@ -1,10 +1,4 @@
 <h1>Index Page</h1>
-<!--<ol>
-  <%# @films.each do |film| %>
-    <li><%#link_to film.title, film_path(film.id)%>
-    </li>
-    <%#end%>
-  </ol>-->
 <div data-controller="search-films">
   <%= form_with url: films_path, method: :get, html: {data: { search_films_target: "form" }} do |f| %>
     <%= f.text_field :query,

@@ -1,3 +1,18 @@
 <h1>show page</h1>
 <h2><%=@film.title%></h2>
+<ul>
+  <li><%=@film.original_title%></li>
+  <li><%=@film.original_title_romanized%></li>
+  <li><%=@film.description%></li>
+  <li><%=@film.director%></li>
+  <li><%=@film.producer%></li>
+  <li><%=@film.release_date%></li>
+  <li><img src=<%=@film.image_url%>></li>
+  <li>
+    <ol><%@film.people.each do |person|%>
+        <%=person%>
+      <%end%>
+    </ol>
+  </li>
+</ul>
 <%= link_to 'Back', films_path, class: 'btn btn-outline-dark btn-lg mt-5'%>
