@@ -35,6 +35,8 @@ gem 'faker'
 gem 'pry-byebug'
 # gem "pg_search"
 gem 'tailwindcss-rails'
+gem 'will_paginate'
+
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"

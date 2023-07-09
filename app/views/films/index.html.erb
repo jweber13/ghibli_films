@@ -15,4 +15,12 @@
   <div data-search-films-target='list'>
     <%= render "list", films: @films %>
   </div>
+  <div class="pagination">
+    <% if @pagination.current_page > 1 %>
+      <%= link_to "Previous", films_path(page: @pagination.current_page - 1) %>
+    <% end %>
+    <% if @pagination.current_page < @pagination.total_pages %>
+      <%= link_to "Next", films_path(page: @pagination.current_page + 1) %>
+    <% end %>
+  </div>
 </div>

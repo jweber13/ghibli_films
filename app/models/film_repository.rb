@@ -41,13 +41,25 @@ class FilmRepository
     @films.values.select do |film|
       film_attributes = [
         film.title,
-        film.original_title,
-        film.description,
-        film.director,
-        film.producer
+        film.original_title
       ]
-      film_attributes.any? { |attribute| attribute&.downcase&.include?(query) }
+      film_attributes.any? { |attribute| attribute&.downcase&.start_with?(query) }
     end
+  end
+
+  def paginate(page: 1, per_page: 10)
+    films = all
+    total_pages = (films.length / per_page.to_f).ceil
+    offset = (page.to_i - 1) * per_page
+    paginated_films = films[offset, per_page]
+
+    OpenStruct.new(
+      current_page: page.to_i,
+      per_page: per_page,
+      total_entries: films.length,
+      total_pages: total_pages,
+      records: paginated_films
+    )
   end
 
   private
