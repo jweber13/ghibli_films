@@ -1,0 +1,6 @@
+<h1>Index Page</h1>
+<ol>
+  <% @films.each do |film| %>
+    <li><%=link_to film.title, film_path(film.id)%></li>
+  <%end%>
+</ol>
