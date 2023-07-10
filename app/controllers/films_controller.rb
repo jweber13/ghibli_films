@@ -2,24 +2,15 @@ class FilmsController < ApplicationController
   before_action :set_film, only: %i[show]
 
   def index
-    # render json: FilmRepository.instance.all
     page = params[:page] || 1
     per_page = 10
     paginated_result = FilmRepository.instance.paginate(page: page, per_page: per_page)
     @films = paginated_result.records
     @pagination = paginated_result
-    # # @films = FilmRepository.instance.all
-    # if params[:query].present?
-    #   @films = FilmRepository.instance.search(params[:query])
-    # end
     if params[:query].present?
       search_result = FilmRepository.instance.search(params[:query])
       @films = paginate_collection(search_result, page: page, per_page: per_page)
-      @pagination = nil # Clear the pagination object for search results
-    # else
-    #   paginated_result = FilmRepository.instance.paginate(page: page, per_page: per_page)
-    #   @films = paginated_result
-    #   @pagination = paginated_result
+      @pagination = nil
     end
     respond_to do |format|
       format.html # Follow regular flow of Rails
