@@ -1,18 +1,24 @@
-<h1>show page</h1>
-<h2><%=@film.title%></h2>
-<ul>
-  <li><%=@film.original_title%></li>
-  <li><%=@film.original_title_romanized%></li>
-  <li><%=@film.description%></li>
-  <li><%=@film.director%></li>
-  <li><%=@film.producer%></li>
-  <li><%=@film.release_date%></li>
-  <li><img src=<%=@film.image_url%>></li>
-  <li>
-    <ol><%@film.people.each do |person|%>
-        <%=person%>
-      <%end%>
-    </ol>
-  </li>
-</ul>
-<%= link_to 'Back', films_path, class: 'btn btn-outline-dark btn-lg mt-5'%>
+<div class="flex justify-center space-x-4 mt-5">
+  <%= link_to 'Back', films_path, class: 'btn btn-outline-dark btn-lg my-2'%>
+</div>
+<div class="flex justify-center">
+  <div class="max-w-xl bg-white rounded-lg shadow-md p-8">
+    <h1 class="text-2xl font-bold mb-4"><%=@film.title%></h1>
+    <img src="<%=@film.image_url%>" alt="<%=@film.title%>" class="w-full rounded-lg mb-4">
+    <p class="mb-2"><span class="font-bold">Original Title:</span><%=@film.original_title%></p>
+    <p class="mb-2"><span class="font-bold">Original Title (Romanized):</span><%=@film.original_title_romanized%></p>
+    <p class="mb-2"><span class="font-bold">Producer:</span><%=@film.producer%></p>
+    <p class="mb-2"><span class="font-bold">Director:</span> <%=@film.director%></p>
+    <p class="mb-2"><span class="font-bold">Description:</span><%=@film.description%></p>
+    <p class="mb-2"><span class="font-bold">Release Date:</span><%=@film.release_date%></p>
+    <p class="mb-2"><span class="font-bold">Run Time:</span><%=@film.running_time%></p>
+    <div class="mt-4">
+      <h3 class="text-lg font-bold mb-2">People:</h3>
+      <ul>
+        <%@film.people.each do |person|%>
+          <li><%=person%></li>
+        <%end%>
+      </ul>
+    </div>
+  </div>
+</div>
