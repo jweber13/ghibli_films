@@ -40,7 +40,8 @@ class FilmRepository
     query = query.downcase
     @films.values.select do |film|
       film_attributes = [
-        film.title
+        film.title,
+        film.release_date
       ]
       film_attributes.any? { |attribute| attribute&.downcase&.include?(query) }
     end

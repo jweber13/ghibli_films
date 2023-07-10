@@ -7,7 +7,7 @@ Styling with tailwind.css: https://tailwindcss.com/
 Gems used: "faker", "pry-byebug", "tailwindcss-rails", "will_paginate"
 
 SQLite3 is pre-packaged, but all objects are stored in-memory (using a repository)
-Search function is by english name only
+Search function is by english name and release date only
 
 E2E test using Cypress.io
 
