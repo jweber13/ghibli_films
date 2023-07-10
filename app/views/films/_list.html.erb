@@ -5,12 +5,15 @@
     <h3><%= pluralize films.count, "result" %> for <code><%= params[:query] %></code></h3>
   <% end %>
 </p>
-<div class="practices-container">
-  <div>
-    <% films.each do |film| %>
-      <div>
-        <h5><%=link_to film.title, film_path(film.id)%></h5>
+<div class="grid grid-cols-1 gap-4 md:grid-cols-3">
+  <% films.each do |film| %>
+    <%= link_to film_path(film.id), class: "flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700" do %>
+      <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src="<%= film.image_url %>" alt="">
+      <div class="flex flex-col justify-between p-4 leading-normal">
+        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><%= film.title %></h5>
+        <p class="mb-3 font-small text-gray-700 dark:text-gray-400">Release Date: <%= film.release_date %></p>
+        <p class="mb-3 font-small text-gray-700 dark:text-gray-400">Runtime: <%= film.running_time %></p>
       </div>
     <% end %>
-  </div>
+  <% end %>
 </div>

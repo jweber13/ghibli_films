@@ -12,15 +12,15 @@
 
                            %>
   <% end %>
-  <div data-search-films-target='list'>
-    <%= render "list", films: @films %>
-  </div>
-  <div class="pagination">
+  <div class="pagination flex justify-center space-x-4 mt-5">
     <% if @pagination.current_page > 1 %>
-      <%= link_to "Previous", films_path(page: @pagination.current_page - 1) %>
+      <%= link_to "Previous", films_path(page: @pagination.current_page - 1), class: 'btn btn-outline-dark btn-lg' %>
     <% end %>
     <% if @pagination.current_page < @pagination.total_pages %>
-      <%= link_to "Next", films_path(page: @pagination.current_page + 1) %>
+      <%= link_to "Next", films_path(page: @pagination.current_page + 1), class: 'btn btn-outline-dark btn-lg' %>
     <% end %>
+  </div>
+  <div data-search-films-target='list'>
+    <%= render "list", films: @films %>
   </div>
 </div>

@@ -43,7 +43,7 @@ class FilmRepository
         film.title,
         film.original_title
       ]
-      film_attributes.any? { |attribute| attribute&.downcase&.start_with?(query) }
+      film_attributes.any? { |attribute| attribute&.downcase&.include?(query) }
     end
   end
 
