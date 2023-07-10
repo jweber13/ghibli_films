@@ -1,4 +1,6 @@
-<h1>Index Page</h1>
+<div class="flex justify-center items-center">
+  <h2>Welcome to the Ghibli filmography</h2>
+</div>
 <div data-controller="search-films">
   <%= form_with url: films_path, method: :get, html: {data: { search_films_target: "form" }} do |f| %>
     <%= f.text_field :query,
