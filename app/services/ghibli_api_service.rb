@@ -5,7 +5,7 @@ require 'film'
 require 'film_repository'
 
 class GhibliApiService
-  API_URL = 'https://ghibliapi.vercel.app/films'
+  API_URL = 'https://ghibli.rest/films'
 
   def fetch_films
     uri = URI(API_URL)
@@ -33,7 +33,7 @@ class GhibliApiService
 
   def fetch_people_names(people_urls)
     people_names = []
-    return people_names if people_urls[0] == "https://ghibliapi.vercel.app/people/" && people_urls.count == 1
+    return people_names if people_urls[0] == "https://ghibli.rest/people" && people_urls.count == 1
     people_urls.each do |people_url|
       uri = URI(people_url)
       response = Net::HTTP.get(uri)

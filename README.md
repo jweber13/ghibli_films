@@ -1,6 +1,6 @@
 Ghibli Film Search Engine
 
-Uses the Ghibli API: https://ghibliapi.vercel.app/
+Uses the Ghibli API: https://ghibli.rest/
 
 Styling with tailwind.css: https://tailwindcss.com/
 
